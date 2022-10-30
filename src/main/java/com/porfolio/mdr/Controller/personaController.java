@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@CrossOrigin(origins= "http://localhost:4200/")
+//@CrossOrigin(origins= "http://localhost:4200/")
+@CrossOrigin(origins = "https://frontendprueba-8403c.web.app")
+
 
 public class personaController {
     
@@ -25,7 +27,7 @@ public class personaController {
     
     //OBTIENE LA LISTA DE LAS PERSONAS
     
-    @GetMapping("personas/traer")
+    @GetMapping("/personas/traer")
     public List<Persona> getPersona(){
     
         return ipersonaService.getPersona();
@@ -36,7 +38,7 @@ public class personaController {
     
     //CREA UN OBJETO PERSONA
     @PreAuthorize("hasRole('ADMIN')")
-    @PostMapping("personas/crear")
+    @PostMapping("/personas/crear")
     
     public String createPersona(@RequestBody Persona persona){
     
